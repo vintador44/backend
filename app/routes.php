@@ -8,6 +8,7 @@ use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\App;
 use Slim\Interfaces\RouteCollectorProxyInterface as Group;
+use App\Controllers\ItemController;
 
 return function (App $app) {
     $app->options('/{routes:.*}', function (Request $request, Response $response) {
@@ -24,4 +25,10 @@ return function (App $app) {
         $group->get('', ListUsersAction::class);
         $group->get('/{id}', ViewUserAction::class);
     });
+
+    $app->get('/items', ItemController::class . ':index');
+    $app->get('/items/{id}', ItemController::class . ':show');
+    $app->post('/items', ItemController::class . ':store');
+    $app->put('/items/{id}', ItemController::class . ':update');
+    $app->delete('/items/{id}', ItemController::class . ':destroy');
 };
