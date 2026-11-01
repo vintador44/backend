@@ -24,7 +24,7 @@
     "require": {
         "php": "^7.4 || ^8.0",
         "ext-json": "*",
-        "monolog/monolog": "^2.8",
+        "monolog/monolog": "^3.12",
         "php-di/invoker": "^2.3",
         "php-di/php-di": "^7.0",
         "php-di/phpdoc-reader": "^2.2",
